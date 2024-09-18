@@ -18,7 +18,6 @@ function Home() {
       }
     } catch (error) {
       console.log(error);
-      // test commit
       setError("Failed to fetch videos");
     } finally {
       setLoading(false);
