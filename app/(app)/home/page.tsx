@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import VideoCard from "@/components/VideoCard";
+import VideoCard from "@/components/videoCard";
 import { Video } from "@/types";
 function Home() {
   const [videos, setVideos] = useState<Video[]>([]);
@@ -10,7 +10,7 @@ function Home() {
 
   const fetchVideos = useCallback(async () => {
     try {
-      //commit comment
+      //commit comment 2
       const response = await axios.get("/api/videos");
       if (Array.isArray(response.data)) {
         setVideos(response.data);
