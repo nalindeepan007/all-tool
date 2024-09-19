@@ -63,6 +63,14 @@ function Home() {
           ))}
         </div>
       )}
+
+      {error && (
+        <div className="toast toast-center">
+          <div className="alert alert-info">
+            <span>Error loading video library; contact admin</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
