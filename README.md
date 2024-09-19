@@ -1,6 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
+## Media storage and browser using Cloudinary, Prisma, NeonDB and NextJS
+Getting Started
 
 First, run the development server:
 
