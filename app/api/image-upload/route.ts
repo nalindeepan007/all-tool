@@ -9,7 +9,8 @@ cloudinary.config({
 });
 interface CloudinaryUploadResult {
     public_id: string;
-    [key: string]: any
+    // [key: string]: any
+    [key: string]: string | number | boolean | Array<string> | undefined;
 }
 export async function POST(request: NextRequest){
 

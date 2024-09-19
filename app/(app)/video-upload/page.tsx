@@ -1,13 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 function VideoUpload() {
   const [file, setFile] = useState<File | null>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isUploading, setIsUploading] = useState(false);
-  const router = useRouter();
+  const [successAlert, setSuccessAlert] = useState(false);
+  const [failAlert, setFailAlert] = useState(false);
+  // const router = useRouter(); disabled for deployment
 
   const MAX_FILE_SIZE = 70 * 1024 * 1024;
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,6 +30,12 @@ function VideoUpload() {
     try {
       const response = await axios.post("/api/video-upload", formData);
       // check for 200 response
+      if (response.status === 200) {
+        setSuccessAlert(true);
+      } else {
+        setFailAlert(true);
+      }
+      // console.log("uploading finish-->>   ", response);
     } catch (error) {
       console.log(error);
       console.error(error);
@@ -82,6 +90,22 @@ function VideoUpload() {
           {isUploading ? "Uploading..." : "Upload Video"}
         </button>
       </form>
+
+      {successAlert && (
+        <div className="toast toast-center">
+          <div className="alert alert-success">
+            <span>Video uploaded successfull !!</span>
+          </div>
+        </div>
+      )}
+
+      {failAlert && (
+        <div className="toast toast-center">
+          <div className="alert alert-info">
+            <span>Failed to upload video; contact admin.</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

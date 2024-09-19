@@ -37,7 +37,7 @@ export default function AppLayout({
   const handleSignOut = async () => {
     await signOut();
   };
-  console.log("user info here==>>   ", user);
+  // console.log("user info here==>>   ", user); user info
 
   return (
     <div className="drawer lg:drawer-open">

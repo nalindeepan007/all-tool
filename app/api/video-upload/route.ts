@@ -13,7 +13,8 @@ interface CloudinaryUploadResult {
     public_id: string
     bytes: number
     duration?: number
-    [key: string]: any
+    // [key: string]: any
+    [key: string]: string | number | boolean | Array<string> | undefined;
 }
 export async function POST(request: NextRequest){
     //to do stated earlier: for checking user
