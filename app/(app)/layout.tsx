@@ -12,7 +12,7 @@ import {
   UploadIcon,
   ImageIcon,
 } from "lucide-react";
-
+import { FileCode2 } from "lucide-react";
 const sidebarItems = [
   { href: "/home", icon: LayoutDashboardIcon, label: "Home Page" },
   { href: "/social-share", icon: Share2Icon, label: "Social Share" },
@@ -63,7 +63,7 @@ export default function AppLayout({
             <div className="flex-1">
               <Link href="/" onClick={handleLogoClick}>
                 <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer">
-                  Cloudinary Showcase
+                  allTool - store reels, long format shots, clicks
                 </div>
               </Link>
             </div>
@@ -101,6 +101,22 @@ export default function AppLayout({
             {children}
           </div>
         </main>
+        <footer className="flex justify-center items-center w-full h-10 bg-base-200">
+          <div className="text-center">
+            <p className="font-sans hover:font-mono">
+              <span className="inline-flex items-center text-2xl text-red-500">
+                <FileCode2 size={28} color="#fff2b3" strokeWidth={1.75} />
+              </span>
+
+              <a
+                href="mailto:nalindeepan007@gmail.com"
+                className="ml-2 text-2xl text-gold-500"
+              >
+                naliN
+              </a>
+            </p>
+          </div>
+        </footer>
       </div>
       <div className="drawer-side">
         <label htmlFor="sidebar-drawer" className="drawer-overlay"></label>
