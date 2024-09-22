@@ -110,9 +110,9 @@ export default function AppLayout({
 
               <a
                 href="mailto:nalindeepan007@gmail.com"
-                className="ml-2 text-2xl text-gold-500"
+                className="ml-2 text-gold-500"
               >
-                naliN
+                © naliN
               </a>
             </p>
           </div>

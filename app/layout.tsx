@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { neobrutalism } from "@clerk/themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,13 +26,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: neobrutalism,
+        variables: { colorPrimary: "#772233" },
+        signIn: {
+          baseTheme: neobrutalism,
+          variables: { colorPrimary: "#772233" },
+        },
+      }}
+    >
       <html data-theme="coffee" lang="en">
         <body
           data-theme="coffee"
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          {children}
+          <div className="flex min-h-screen items-center justify-center">
+            {children}
+          </div>
         </body>
       </html>
     </ClerkProvider>
