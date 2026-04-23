@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import VideoCard from "@/components/videoCard";
 import { Video } from "@/types";
+import { triggerVideoDownload } from "@/lib/download";
 function Home() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
@@ -30,15 +31,7 @@ function Home() {
   }, [fetchVideos]);
 
   const handleDownload = useCallback((url: string, title: string) => {
-    () => {
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", `${title}.mp4`);
-      link.setAttribute("target", "_blank");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    };
+    triggerVideoDownload(url, title);
   }, []);
 
   if (loading) {

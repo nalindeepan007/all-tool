@@ -17,7 +17,6 @@ interface CloudinaryUploadResult {
     [key: string]: string | number | boolean | Array<string> | undefined;
 }
 export async function POST(request: NextRequest){
-    //to do stated earlier: for checking user
     const {userId} = auth()
     if (!userId) {
         return NextResponse.json({
@@ -65,7 +64,6 @@ export async function POST(request: NextRequest){
                 uploadStream.end(buffer)
             }
         )
-        // for out flow we will do a DB operation over Prisma
         const video = await prisma.video.create({
             data: {
                 title,
@@ -81,7 +79,7 @@ export async function POST(request: NextRequest){
         
     } catch (error) {
         console.log("Upload video failed!!!", error)
-        return NextResponse.json({error: "Upload Image Failed"}, {status: 500})
+        return NextResponse.json({error: "Upload Video Failed"}, {status: 500})
     }finally{
         await prisma.$disconnect()
     }

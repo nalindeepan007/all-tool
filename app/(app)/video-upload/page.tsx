@@ -94,7 +94,7 @@ function VideoUpload() {
       {successAlert && (
         <div className="toast toast-center">
           <div className="alert alert-success">
-            <span>Video uploaded successfull !!</span>
+            <span>Video uploaded successfully!</span>
           </div>
         </div>
       )}

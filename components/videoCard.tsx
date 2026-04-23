@@ -44,7 +44,10 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onDownload }) => {
       src: publicId,
       width: 400,
       height: 225,
-      rawTransformations: ["e_preview:duration_15:max_seg_dur_9:min_seg_dur_1"],
+      crop: "fill",
+      gravity: "auto",
+      quality: "auto",
+      format: "mp4",
     });
   }, []);
   const formatSize = useCallback((size: number) => {
